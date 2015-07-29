@@ -19,7 +19,7 @@ upgraded to the newest version, 2.0, and merged with BioLemmatizer.
 
 ## Changes to MorphAdorner
 
-- Removed packages that are not crucial to eliminate dependency on ivy packages
+- Removed packages that are not crucial to eliminate dependency on ivy artifacts
 - Fixed PatternReplacer.java to eliminate race conditions. The class now creates a Matcher object
 for every call instead of recycling it
 
@@ -35,6 +35,6 @@ or
 ## TODO
 
 - biolemmatizer-uima package cannot be built under gradle. This is because it requires a plugin to build
-a UIMA typesystem out of XML descriptors. There is a plugin for this in maven, but I was unable to do force
+a UIMA typesystem out of XML descriptors. There is a plugin for this in maven, but I was unable to force
 gradle's [plugin](https://plugins.gradle.org/plugin/com.dictanova.jcasgen) to
 work. If you can make this work, please make a pull request.
