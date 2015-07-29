@@ -1,0 +1,7 @@
+adjective	JJ,JJR,JJS	
+adverb	RB,RBR,RBS
+conjunction	CC,IN
+noun	NN,NNS,NNP,NNPS
+pronoun	PRP,PRP$
+verb	VB,VBD,VBG,VBN,VBP,VBZ
+wh-word	WDT,WP,WP$,WRB,UH

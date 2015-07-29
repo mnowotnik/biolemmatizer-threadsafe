@@ -1,0 +1,16 @@
+allprojects  {
+  apply plugin: 'maven';
+  group = 'edu.ucdenver.ccp';
+  version = '1.2';
+}
+
+subprojects {
+  apply plugin: 'java'
+
+  repositories {
+    mavenCentral();
+    mavenLocal();
+    maven { url "http://maven.aksw.org/repository/internal" }
+    maven { url "http://svn.code.sf.net/p/bionlp/code/repo/" }
+  }
+}

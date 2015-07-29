@@ -1,0 +1,7 @@
+branches:
+        only:
+            master
+language: java
+script:
+    - gradle check
+    - mvn test

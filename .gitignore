@@ -1,0 +1,11 @@
+/morphadorner
+/*/lib
+/*/bin
+/*/build
+/*/log
+/*/target
+/build
+.gradle
+.project
+.settings
+

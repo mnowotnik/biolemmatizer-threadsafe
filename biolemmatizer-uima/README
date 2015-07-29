@@ -1,0 +1,73 @@
+The biolemmatizer-uima module implements a UIMA Analysis Engine (AE) 
+incorporating the lemmatization functionality present in the biolemmatizer-core 
+module. The AE class is edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE
+
+A typical usage scenario for this AE will be to consume token annotations from 
+the CAS, lemmatize their covered text, and add the lemmas to the CAS.
+
+Efforts have been made to make this AE as type-system-independent as possible, 
+allowing for easy integration in any NLP pipeline. This project makes use of the
+UIMA-SHIMS project (part of http://bionlp-uima.sourceforge.net/) which provides
+some simple interfaces for common tasks performed by AEs. Using implementations
+of these interfaces makes the AE quite flexible in regards to working with 
+various type systems. 
+
+There are also options that allow for the AE to be configured to use a specific
+class from the CAS as the token class, and optionally a specific method name 
+from which to extract part of speech information. 
+
+The configuration scenarios are documented in the unit tests (see src/test/java)
+that accompany this distribution:
+ 
+BioLemmatizer_AE_Default_Test.java 
+  - demonstrates the simplest setup that uses the token class name as input to 
+    specify token annotations in the CAS.
+   
+BioLemmatizer_AE_ReInsert_Test.java
+  - demonstrates implementation of the LemmaDecorator interface to customize 
+    how the lemmas are stored in the CAS once they are determined.
+    
+BioLemmatizer_AE_CustomTypes_Test.java
+  - demonstrates the full flexibility of the BioLemmatizer_AE to interact a
+    type system
+    
+
+---- CONFIGURATION/DESCRIPTOR FILES ----
+The biolemmatizer-uima module uses the 
+UimaFIT (http://code.google.com/p/uimafit/) library. If you are interested in
+using the BioLemmatizer_AE in the context of UimaFIT, the test cases are also
+a good place to look for examples.
+
+For convenience, we have included several UIMA descriptor files with this 
+distribution. They can be found in 
+src/main/resources/edu/ucdenver/ccp/nlp/biolemmatizer/uima
+Descriptions of each can be found in the README_DESCRIPTOR_FILES file found in
+the same directory.
+
+
+---- MAVEN ----
+
+If you would like to add the biolemmatizer-uima module as a Maven dependency to
+your project, please add the following dependency coordinates and repository to 
+your pom.xml file:
+
+<dependency>
+  <groupId>edu.ucdenver.ccp</groupId>
+  <artifactId>biolemmatizer-uima</artifactId>
+  <version>1.0</version>
+</dependency>
+
+<repository>
+  <id>bionlp-sourceforge</id>
+  <url>http://bionlp.svn.sourceforge.net/viewvc/bionlp/repo/</url>
+</repository> 
+
+
+---- CITING THE BIOLEMMATIZER ----
+
+If you used the BioLemmatizer to support academic research, please cite the 
+following paper:
+
+Haibin Liu, Tom Christiansen, William A Baumgartner Jr, and Karin Verspoor
+BioLemmatizer: a lemmatization tool for morphological processing of biomedical text
+Journal of Biomedical Semantics, 2012.

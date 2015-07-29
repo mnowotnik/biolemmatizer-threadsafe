@@ -1,0 +1,29 @@
+The BioLemmatizer_AE is highly configurable in regards to the UIMA types it 
+uses. Three example descriptor files are included in the distribution. A brief 
+description for each follows. Look at the overview in each individual descriptor
+file for more details.
+
+BioLemmatizer_AE_TokenClsInput_NoPOS.xml
+This descriptor file demonstrates how you can provide the class name of a token
+annotation that exists in the CAS, 
+e.g. "edu.ucdenver.ccp.nlp.biolemmatizer.uima.test.Token", and run the 
+BioLemmatizer_AE. This particular setup assumes no part-of-speech information is
+present. Note, as a result of missing part-of-speech information, the 
+BioLemmatizer may return multiple lemma/part-of-speech pairs depending on the 
+input.
+
+BioLemmatizer_AE_TokenClsInput_WithPOS.xml
+This descriptor is a minor extension of the one described above. If your type
+system happens to store part-of-speech tags as a String in a field attached to
+the token annotation, then this descriptor will allow you to use the 
+BioLemmatizer_AE directly with your type system, no coding necessary, by simply
+indicating the method name used to extract the part-of-speech tag from the 
+token.
+
+BioLemmatizer_AE_CustomSettings.xml
+This descriptor demonstrates the full flexibility of the BioLemmatizer_AE to 
+deal with various type systems. By utilizing a series of simple interfaces, the
+BioLemmatizer is able to extract the information it requires from the CAS and
+insert the resulting lemmas into the CAS. This descriptor requires the most 
+configuration and will likely require some coding to interface with your type 
+system, but again is the most flexible. 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>TypeSystem</name>
+  <description/>
+  <version>1.0</version>
+  <vendor/>
+  <types>
+    <typeDescription>
+      <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.LemmaAnnotation</name>
+      <description>This annotation type stores information pertaining to the lemma of the underlying text.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>lemmas</name>
+          <description>This feature stores possible lemmas. Each lemma is associated with a part-of-speech stored at the same index in the partsOfSpeech FSArray.</description>
+          <rangeTypeName>uima.cas.StringArray</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>partsOfSpeech</name>
+          <description>The partsOfSpeech array stores the part-of-speech associated with the lemma at the same index in the lemmas StringArray.</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>edu.ucdenver.ccp.nlp.biolemmatizer.uima.PartOfSpeech</elementType>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.PartOfSpeech</name>
+      <description>This data structure stores part-of-speech information, i.e. a POS tag and the name of the tag set to which it belongs.</description>
+      <supertypeName>uima.cas.TOP</supertypeName>
+      <features>
+        <featureDescription>
+          <name>posTag</name>
+          <description>The POS tag for this PartOfSpeech</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>tagSetName</name>
+          <description>The name of the part-of-speech tag set to which the POS tag belongs.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

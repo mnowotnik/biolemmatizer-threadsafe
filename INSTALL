@@ -1,0 +1,49 @@
+This INSTALL file describes how to build the BioLemmatizer project. If you are
+simply looking to use the BioLemmatizer, then either add the following Maven 
+dependency coordinates and repository configuration to your 
+pom file (if you are using Maven):
+
+<dependency>
+  <groupId>edu.ucdenver.ccp</groupId>
+  <artifactId>biolemmatizer-core</artifactId>
+  <version>1.0</version>
+</dependency>
+<dependency>
+  <groupId>edu.ucdenver.ccp</groupId>
+  <artifactId>biolemmatizer-uima</artifactId>
+  <version>1.0</version>
+</dependency>
+
+<repository>
+  <id>bionlp-sourceforge</id>
+  <url>http://bionlp.svn.sourceforge.net/viewvc/bionlp/repo/</url>
+</repository>
+
+or, if you are not using Maven, download the BioLemmatizer binary from 
+http://bionlp.svn.sourceforge.net/viewvc/bionlp/repo/edu/ucdenver/ccp/biolemmatizer/1.0/biolemmatizer-core-1.0-jar-with-dependencies.jar
+and place it on your classpath.
+
+Note: The BioLemmatizer code requires Java version 6 or greater.
+
+If you are interested in building the BioLemmatizer project locally, please 
+read on. There are at least two options for building the BioLemmatizer project:
+
+Option 1: Import the BioLemmatizer into Eclipse as a Maven project. Included in 
+          the distribution are the .project and .classpath files used by Eclipse
+          to configure Eclipse projects. Once the BioLemmatizer project has been
+          imported into Eclipse, Run As --> Maven install will build the 
+          project. Note, building Maven projects inside of Eclipse requires 
+          installation of a plugin. For details see: 
+                                     http://maven.apache.org/eclipse-plugin.html
+                                      
+Option 2: Build from the command line using Maven
+           Requirements:
+                         Apache Maven 3.0.3 (http://maven.apache.org/)
+                         Java 1.6.x
+
+           Inside the base biolemmatizer/ directory, execute: mvn clean install
+
+If you are not familiar with Maven, you can find the build artifacts 
+(e.g. jar files, etc.) in the target/ directories inside each Maven module, 
+i.e. biolemmatizer-core/target/ and biolemmatizer-uima/target/. 
+

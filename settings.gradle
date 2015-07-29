@@ -1,0 +1,6 @@
+rootProject.name = 'biolemmatizer'
+include ':biolemmatizer-core'
+/* include ':biolemmatizer-uima' */
+
+/* project(':biolemmatizer-core').projectDir = "$rootDir/biolemmatizer-core" as File */
+/* project(':biolemmatizer-uima').projectDir = "$rootDir/biolemmatizer-uima" as File */

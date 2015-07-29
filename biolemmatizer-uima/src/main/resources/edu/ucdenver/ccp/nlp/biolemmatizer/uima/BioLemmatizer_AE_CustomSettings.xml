@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>BioLemmatizer_AE</name>
+    <description>The BioLemmatizer AE processes token annotations in the CAS and inserts corresponding lemmas. This annotator is highly configurable in regards to the type system used. This particular descriptor file is set up to be the most highly configurable. Using it requires implementations of a number of interfaces as described below.
+
+Parameters that must be set:
+
+edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.tokenTypeName
+This value of this parameter should be coordinated with the AnnotationDataExtractor implementation being used. This value will define which annotations in the CAS are identified for BioLemmatizer processing. For example, if using the DefaultAnnotationDataExtractor class, then this value should be the class name of the annotation to process, e.g. "edu.ucdenver.ccp.nlp.biolemmatizer.uima.test.Token".
+
+edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.annotationDataExtractorClassName
+The value of this parameter should be the class name of a particular AnnotationDataExtractor implementation. In the case of the BioLemmatizer, the AnnotationDataExtractor is used to extract the annotation type from each annotation in the CAS. It is also used to extract the span of each annotation. The DefaultAnnotationDataExtractor is available for use. It will return the class name as the annotation type, and extracts span information using the default begin and end fields of the uima.tcas.Annotation class.
+
+edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.posDecoratorClassName
+The value of this parameter should be the class name of a particular PartOfSpeechDecorator implementation. The PartOfSpeechDecorator class, in the case of the BioLemmatizer_AE, controls how the part-of-speech information is extracted from the CAS. Depending on the type system used, part-of-speech information may be stored in the CAS in various ways and use of this parameter indicates to the BioLemmatizer_AE how to extract that information. 
+
+edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.lemmaDecoratorClassName
+The value of this parameter should be the class name of a particular LemmaDecorator implementation. In the case of the BioLemmatizer, the LemmaDecorator implementation controls how the lemma(s) are stored in the CAS once they are determined. The distribution comes with an example implementation, the DefaultLemmaDecorator, which adds LemmaAnnotation annotations to the CAS, one for each token processed. The LemmaAnnotation has a field to store the lemma and corresponding part-of-speech.
+
+To use this descriptor please edit the configuration parameter listed above. Also please update the type system information as necessary, i.e. add the type system that contains your token annotation class. All other configuration settings can remain as they are.</description>
+    <version>1.0</version>
+    <vendor>UC Denver - CCP</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.tokenTypeName</name>
+        <description/>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.tokenGetPosMethodName</name>
+        <description/>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.posDecoratorClassName</name>
+        <description>name of the PartOfSpeechDecorator implementation to use</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.lemmaDecoratorClassName</name>
+        <description>name of the LemmaDecorator implementation to use</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.annotationDataExtractorClassName</name>
+        <description>name of the AnnotationDataExtractor implementation to use</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.lemmaDecoratorClassName</name>
+        <value>
+          <string>[LemmaDecorator CLASS NAME GOES HERE]</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.annotationDataExtractorClassName</name>
+        <value>
+          <string>[AnnotationDataExtractor CLASS NAME GOES HERE]</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.tokenTypeName</name>
+        <value>
+          <string>[TOKEN TYPE NAME GOES HERE, MIGHT BE THE CLASS NAME, BUT COULD BE SOMETHING ELSE. MUST COORDINATE WITH THE ANNOTATIONDATAEXTRACTOR IMPLEMENTATION USED</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.posDecoratorClassName</name>
+        <value>
+          <string>[PartOfSpeechDecorator CLASS NAME GOES HERE]</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription/>
+    <fsIndexCollection/>
+    <capabilities/>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+</analysisEngineDescription>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>BioLemmatizer_AE</name>
+    <description>The BioLemmatizer AE processes token annotations in the CAS and inserts corresponding lemmas. This annotator is highly configurable in regards to the type system used. This particular descriptor file is set up to take in the name of a token annotation class from any type system. Annotations corresponding to that class name will be processed by the BioLemmatizer_AE and lemmas for their covered texts will be extracted. 
+
+In terms of output, this particular descriptor file is set up to use the DefaultLemmaDecorator which addes LemmaAnnotation annotations to the CAS, 1 for each token. 
+
+To use this descriptor please edit the configuration parameter settings by inserting a the name of the token annotation class to be processed as the value for the edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.tokenTypeName parameter. Also please update the type system information as necessary, i.e. add the type system that contains your token annotation class. All other configuration settings can remain as they are.</description>
+    <version>1.0</version>
+    <vendor>UC Denver - CCP</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.tokenTypeName</name>
+        <description/>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.tokenGetPosMethodName</name>
+        <description/>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.posDecoratorClassName</name>
+        <description>name of the PartOfSpeechDecorator implementation to use</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.lemmaDecoratorClassName</name>
+        <description>name of the LemmaDecorator implementation to use</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.annotationDataExtractorClassName</name>
+        <description>name of the AnnotationDataExtractor implementation to use</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.lemmaDecoratorClassName</name>
+        <value>
+          <string>edu.ucdenver.ccp.nlp.biolemmatizer.uima.DefaultLemmaDecorator</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.annotationDataExtractorClassName</name>
+        <value>
+          <string>edu.ucdenver.ccp.uima.shims.annotation.impl.DefaultAnnotationDataExtractor</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>edu.ucdenver.ccp.nlp.biolemmatizer.uima.BioLemmatizer_AE.tokenTypeName</name>
+        <value>
+          <string>[TOKEN CLASS NAME GOES HERE, e.g. edu.ucdenver.ccp.nlp.biolemmatizer.uima.test.Token]</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription/>
+    <fsIndexCollection/>
+    <capabilities/>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+</analysisEngineDescription>
