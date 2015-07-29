@@ -1,4 +1,5 @@
-# BioLemmatizer v1.2 threadsafe edition
+# BioLemmatizer v1.2 threadsafe
+[![build-status](https://travis-ci.org/Mike-Now/biolemmatizer-threadsafe.svg)](https://travis-ci.org/Mike-Now/biolemmatizer-threadsafe)
 
 This is a fork of the original v1.2
 [BioLemmatizer](http://biolemmatizer.sourceforge.net/). BioLemmatizer
