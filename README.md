@@ -27,11 +27,11 @@ for every call instead of recycling it
 
 ## Installation
 
-- mvn clean install
+    mvn clean install
 
-or
+or (only biolemmatizer-core)
 
-- gradle build (only biolemmatizer-core)
+    gradle build
  
 ## TODO
 
